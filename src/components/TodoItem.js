@@ -32,9 +32,7 @@ const TodoItem = (props) => {
     editMode.display = "none";
   }
   useEffect(() => {
-    return () => {
-      console.log("Cleaning up...");
-    };
+    return () => {};
   }, []);
   return (
     <li className={styles.item}>

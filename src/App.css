@@ -63,3 +63,15 @@ body {
   outline: none;
   border: none;
 }
+.navbar {
+  position: absolute;
+  top: 5%;
+}
+.navigation {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+a:-webkit-any-link {
+  text-decoration: none;
+}
