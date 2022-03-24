@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+/* eslint-disable no-alert */
+import React, { useState } from 'react';
 
-const InputTodo = (props) => {
+const InputTodo = (addTodoProps) => {
   const [inputText, setInputText] = useState({
-    title: "",
+    title: '',
   });
 
   const onChange = (e) => {
@@ -15,12 +16,12 @@ const InputTodo = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputText.title.trim()) {
-      props.addTodoProps(inputText.title);
+      addTodoProps(inputText.title);
       setInputText({
-        title: "",
+        title: '',
       });
     } else {
-      alert("Please write item");
+      alert('Please write item');
     }
   };
 
@@ -34,7 +35,9 @@ const InputTodo = (props) => {
         name="title"
         onChange={onChange}
       />
-      <button className="input-submit">Submit</button>
+      <button type="button" className="input-submit">
+        Submit
+      </button>
     </form>
   );
 };
