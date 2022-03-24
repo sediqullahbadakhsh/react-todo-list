@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, useMatch, Route } from 'react-router-dom';
-import SinglePage from './SinglePage';
+import { Link, useMatch } from 'react-router-dom';
 
 const About = () => {
-  const { url, path } = useMatch();
+  const { url } = useMatch();
   return (
     <div>
       <ul>
@@ -14,9 +13,6 @@ const About = () => {
           <Link to={`${url}/about-author`}>About Author</Link>
         </li>
       </ul>
-      <Route path={`${path}/:slug`}>
-        <SinglePage />
-      </Route>
     </div>
   );
 };
