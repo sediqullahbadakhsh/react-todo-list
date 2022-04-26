@@ -4,6 +4,9 @@
 
 > Simple React Todo-list app for managing your daily todo's
 
+## LiveDemo
+[Todo List](https://sediqullahbadakhsh.github.io/react-todo-list/)
+
 ## Setup
 
 ### Clone this repository
