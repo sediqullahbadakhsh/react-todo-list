@@ -1,9 +1,11 @@
-/* eslint-disable no-alert */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { FaPlusSquare } from 'react-icons/fa';
 
-const InputTodo = (addTodoProps) => {
+const InputTodo = ({ addTodoProps }) => {
   const [inputText, setInputText] = useState({
     title: '',
+    message: '',
   });
 
   const onChange = (e) => {
@@ -21,25 +23,35 @@ const InputTodo = (addTodoProps) => {
         title: '',
       });
     } else {
-      alert('Please write item');
+      // alert('Please write item');
+      setInputText({ message: 'Please write something' });
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <input
-        type="text"
-        className="input-text"
-        placeholder="Add todo..."
-        value={inputText.title}
-        name="title"
-        onChange={onChange}
-      />
-      <button type="button" className="input-submit">
-        Submit
-      </button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="form-container">
+        <input
+          type="text"
+          className="input-text"
+          placeholder="Add todo..."
+          value={inputText.title}
+          name="title"
+          onChange={onChange}
+        />
+        <button className="input-submit" type="submit">
+          <FaPlusSquare
+            style={{ color: 'darkcyan', fontSize: '20px', marginTop: '2px' }}
+          />
+        </button>
+      </form>
+      <p className="alert-message">{inputText.message}</p>
+    </div>
   );
+};
+
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func.isRequired,
 };
 
 export default InputTodo;

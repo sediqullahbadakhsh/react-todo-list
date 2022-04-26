@@ -1,7 +1,6 @@
-/* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosList from './TodosList';
@@ -10,12 +9,7 @@ import NotMatch from '../pages/NotMatch';
 import Navbar from './Navbar';
 
 const TodoContainer = () => {
-  const getInitialTodos = () => {
-    const temp = localStorage.getItem('todos');
-    const savedTodos = JSON.parse(temp);
-    return savedTodos || [];
-  };
-  const [todos, setTodos] = useState(getInitialTodos());
+  const [todos, setTodos] = useState([]);
 
   const handleChange = (id) => {
     setTodos((prevState) => prevState.map((todo) => {
@@ -46,6 +40,7 @@ const TodoContainer = () => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
+          // eslint-disable-next-line no-param-reassign
           todo.title = updatedTitle;
         }
         return todo;
@@ -53,6 +48,7 @@ const TodoContainer = () => {
     );
   };
   useEffect(() => {
+    // storing todos items
     const temp = JSON.stringify(todos);
     localStorage.setItem('todos', temp);
   }, [todos]);
@@ -79,8 +75,8 @@ const TodoContainer = () => {
             </div>
           )}
         />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotMatch />} />
+        <Route path="/about/*" element={<About />} />
+        <Route path="/*" element={<NotMatch />} />
       </Routes>
     </>
   );
