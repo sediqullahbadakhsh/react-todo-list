@@ -23,7 +23,6 @@ const InputTodo = ({ addTodoProps }) => {
         title: '',
       });
     } else {
-      // alert('Please write item');
       setInputText({ message: 'Please write something' });
     }
   };
