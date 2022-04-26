@@ -1,8 +1,8 @@
 import React from 'react';
 
 const NotMatch = () => (
-  <div>
-    <h3>No match for this page</h3>
+  <div className="not-match">
+    <h3>Page not Found!</h3>
   </div>
 );
 export default NotMatch;
